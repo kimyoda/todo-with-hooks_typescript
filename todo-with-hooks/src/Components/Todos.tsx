@@ -59,12 +59,13 @@ export const Todos = () => {
   };
 
   return (
-    <section>
+    <section className="w-10/12 lg:w-1/2 max-w-2xl flex flex-col items-center">
       <AddTodo
         handleSubmitTodo={handleSubmitTodo}
         handleChange={handleChange}
         task={task}
       />
+      <div className="h-5" />
       {todos.map((todo) => (
         <Row
           key={todo.id}
@@ -73,7 +74,11 @@ export const Todos = () => {
           handleCheckTodo={handleCheckTodo}
         />
       ))}
-      {!hasTodos && <p>Please add a todo!</p>}
+      {!hasTodos && (
+        <p className="mb-5 text-xl text-red-700 uppercase">
+          Please add a todo!
+        </p>
+      )}
       {hasTodos && (
         <p>{`${remainingTodos} of ${todosLength}`} todos remaining</p>
       )}
